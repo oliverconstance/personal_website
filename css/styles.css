@@ -142,7 +142,10 @@ section h2 {
 }
 
 /* Skills Section */
-#skills .skills-list {
+
+
+/* Apply to ALL elements with class="skills-list" */
+.skills-list {
     list-style: none; /* Remove bullet points */
     margin: 0;
     padding: 0;
@@ -151,7 +154,8 @@ section h2 {
     justify-content: center;
 }
 
-#skills .skills-list li {
+/* Apply to ALL <li> elements inside any .skills-list */
+.skills-list li {
     background-color: #e0f2ff; /* Light blue */
     padding: 0.5rem 1rem;
     margin: 0.5rem;
@@ -160,6 +164,27 @@ section h2 {
     color: #333;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
+
+/* Specific styling for Technology list items */
+#technologies .skills-list li {
+    background-color: #d4f0d4; /* Option 1: Soft Mint Green */
+    /* Or use one of the other options: */
+    /* background-color: #c8e6c9; */ /* Option 2: Material Design Green 100 */
+    /* background-color: #ddeedd; */ /* Option 3: Pale Sage Green */
+
+    /* Keep other styles like padding, margin, border-radius consistent
+       if you haven't already applied them via a general .skills-list li rule.
+       If you HAVE a general rule, you might only need the background-color override.
+       Example of inheriting/keeping other styles: */
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    border-radius: 5px;
+    font-weight: 500;
+    color: #333; /* Ensure text is still readable */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+
 
 /* Projects Section */
 .project-item {
