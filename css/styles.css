@@ -1,3 +1,17 @@
+html {
+    scroll-padding-top: 70px; /* Adjust this value based on your header's height + a little buffer */
+    scroll-behavior: smooth; /* Optional: Adds smooth scrolling effect */
+  }
+  
+  /* --- Crucial Addition for Fixed Headers --- */
+  /* You also need to ensure the main content isn't initially hidden */
+  /* Add padding to the top of the main content area equal to the header height */
+  
+  main {
+    padding-top: 70px; /* Match the scroll-padding-top value (or header height) */
+  }
+
+
 /* Basic Reset */
 * {
     margin: 0;
@@ -255,11 +269,52 @@ footer {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+/*@media (max-width: 768px) {
     nav ul li {
         display: block;
         margin: 0.75rem 0;
+    }*/
+
+
+/* --- Ensure your header is actually fixed on mobile --- */
+/* You'll likely need a media query for this */
+
+@media (max-width: 768px) { /* Adjust breakpoint as needed */
+    header {
+      position: fixed; /* Or sticky */
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #fff; /* Give it a background so content doesn't show through */
+      z-index: 1000; /* Make sure it stays on top */
+      height: 60px; /* Example height - adjust */
+      /* Add any other necessary styling (padding, box-shadow, etc.) */
     }
+  
+    /* Adjust scroll-padding and main padding specifically for mobile if header height changes */
+    html {
+      scroll-padding-top: 70px; /* Mobile header height + buffer */
+    }
+    main {
+      padding-top: 70px; /* Mobile header height + buffer */
+    }
+  
+    /* You might also need styles to make your mobile nav usable */
+    /* e.g., hide the list by default, add a burger menu button, etc. */
+    /* This example assumes the nav list is always visible for simplicity */
+    header nav ul {
+        display: flex; /* Or however you arrange items */
+        justify-content: space-around; /* Example */
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        align-items: center;
+    }
+     header nav ul li a {
+        padding: 5px 10px; /* Adjust padding for touch targets */
+     }
+  
 
     #hero h1 {
         font-size: 2.5rem;
@@ -288,3 +343,17 @@ footer {
         font-size: 1rem;
     }
 }
+
+@media (min-width: 769px) {
+    /* Reset or adjust styles if needed */
+    header {
+        position: static; /* Or relative, depending on your desktop layout */
+        /* Reset other mobile-specific styles */
+    }
+    html {
+        scroll-padding-top: 0; /* Or desktop header height if fixed there too */
+    }
+    main {
+        padding-top: 0; /* Or desktop header height if fixed there too */
+    }
+ }
